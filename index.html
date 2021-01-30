@@ -111,7 +111,7 @@
     <!--Thank You-->
     <script>
         document.getElementById('first-class-increase').addEventListener("click",function(){
-            handleTicketChange(true);
+            handleFirstClassTicketChange(true);
             
         })
 
@@ -122,12 +122,12 @@
             // firstClassCount.value = firstClassNewCount;
             // firstClassTotalPrice = firstClassNewCount *150;
             // document.getElementById("first-class-price").innerText = firstClassTotalPrice;
-            handleTicketChange(false);
+            handleFirstClassTicketChange(false);
 
 
         })
 
-        function handleTicketChange(isIncrease){
+        function handleFirstClassTicketChange(isIncrease){
             const firstClassCount = document.getElementById("first-class-count");
             const firstClassCountNumber = parseInt(firstClassCount.value);
             let firstClassNewCount =  firstClassCountNumber;
@@ -145,21 +145,38 @@
         }
 
         document.getElementById("economy-class-increase").addEventListener("click",function(){
-            const economyClassCount = document.getElementById("economy-class-count");
-            const economyClassCountNumber = parseInt(economyClassCount.value);
-            const economyClassNewCount = economyClassCountNumber +1;
-            economyClassCount.value = economyClassNewCount;
-            economyClassTotalPrice = economyClassNewCount*100;
-            document.getElementById("economy-class-price").innerText= economyClassTotalPrice;
+            // const economyClassCount = document.getElementById("economy-class-count");
+            // const economyClassCountNumber = parseInt(economyClassCount.value);
+            // const economyClassNewCount = economyClassCountNumber +1;
+            // economyClassCount.value = economyClassNewCount;
+            // economyClassTotalPrice = economyClassNewCount*100;
+            // document.getElementById("economy-class-price").innerText= economyClassTotalPrice;
+            handleEconomyClassTicketChange(true);
         })
         document.getElementById("economy-class-decrease").addEventListener("click",function(){
+            // const economyClassCount = document.getElementById("economy-class-count");
+            // const economyClassCountNumber = parseInt(economyClassCount.value);
+            // const economyClassNewCount = economyClassCountNumber-1;
+            // economyClassCount.value = economyClassNewCount;
+            // economyClassTotalPrice = economyClassNewCount*100;
+            // document.getElementById("economy-class-price").innerText= economyClassTotalPrice;
+            handleEconomyClassTicketChange(false);
+        })
+        function handleEconomyClassTicketChange(isIncrease){
             const economyClassCount = document.getElementById("economy-class-count");
             const economyClassCountNumber = parseInt(economyClassCount.value);
-            const economyClassNewCount = economyClassCountNumber-1;
+            let economyClassNewCount = economyClassCountNumber
+            if(isIncrease==true){
+
+                economyClassNewCount = economyClassCountNumber +1;
+            }
+            if(isIncrease==false && economyClassCountNumber>0){
+                economyClassNewCount = economyClassCountNumber-1;
+            }
             economyClassCount.value = economyClassNewCount;
             economyClassTotalPrice = economyClassNewCount*100;
             document.getElementById("economy-class-price").innerText= economyClassTotalPrice;
-        })
+        }
 
     </script>
     
