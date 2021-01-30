@@ -15,7 +15,7 @@
 
 <body>
     <!--Header and Menu Section-->
-    <header class="container">
+    <header class="container" >
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -27,7 +27,7 @@
     </header>
 
     <!--Booking Section-->
-    <main class="main-content container">
+    <main class="main-content container" id = "booking-area">
         <div class="booking-form">
             <h3>Booking Flights</h3>
             <div class="input-group">
@@ -41,7 +41,7 @@
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">Departure</label>
-                    <input class="inp-style" type="date" name="">
+                        <input class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Return</label>
@@ -51,42 +51,33 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($<span id="first-class-price">150</span>)</label>
-                    <input id = "first-class-count" class="inp-style inp-width" type="number" name="" value = 0>
+                    <input id="first-class-count" class="inp-style inp-width" type="number" name="" value=0>
                 </div>
                 <div class="plus-minus-btn">
-                    <!-- <p>+ -</p> -->
-                    <button id="first-class-increase">+</button>
-                    <!-- <button onclick="handleTicketChange('first-class',true)">+</button> -->
-                    <button id="first-class-decrease">-</button>
-                    <!-- <button onclick="handleTicketChange('first-class',false)">-</button> -->
-
+                    <button id="first-class-increase" class="btn">+</button>
+                    <button id="first-class-decrease" class="btn">-</button>
                 </div>
             </div>
-            
             <div class="input-group f-class">
                 <div>
-                    <label for="">Economy ($<span id = "economy-class-price">100</span>)</label>
-                    <input id="economy-class-count" class="inp-style inp-width" type="number" name="" value= 0>
+                    <label for="">Economy ($<span id="economy-class-price">100</span>)</label>
+                    <input id="economy-class-count" class="inp-style inp-width" type="number" name="" value=0>
                 </div>
                 <div class="plus-minus-btn">
-                   <button id = "economy-class-increase">+</button>
-                   <!-- <button id = "economy-class-increase">+</button> -->
-                   <!-- <button onclick="handleTicketChange('economy-class',true)">+</button> -->
-                   <button id = "economy-class-decrease">-</button>
-                   <!-- <button onclick="handleTicketChange('economy-class',false)">-</button> -->
-
+                    <button id="economy-class-increase" class="btn">+</button>
+                    <button id="economy-class-decrease" class="btn">-</button>
                 </div>
             </div>
+
             <div class="calculations">
                 <div class="amount">
                     <div class="left">
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p id = "subtotal">$00</p>
+                        <p id="subtotal">$00</p>
                     </div>
                 </div>
-
                 <div class="amount">
                     <div class="left">
                         <p>Charge 10% VAT</p>
@@ -105,134 +96,142 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id = "booking"class="btn-style">Book Now</button>
         </div>
-
         <div class="booking-content">
             <h1>discover <br> around the world</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias
+                veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise
+                voluptatibus quam</p>
         </div>
-    </section>
-
-    <!--Thank You-->
-    <script>
-        document.getElementById('first-class-increase').addEventListener("click",function(){
-            handleFirstClassTicketChange(true);
-            subtotal();
-            tax();
-            totalPrice();
-            
-        })
-
-        document.getElementById("first-class-decrease").addEventListener("click",function(){
-            handleFirstClassTicketChange(false);
-            subtotal();
-            tax();
-            totalPrice();
-        })
-
-
-        function handleFirstClassTicketChange(isIncrease){
-            const firstClassCount = document.getElementById("first-class-count");
-            const firstClassCountNumber = parseInt(firstClassCount.value);
-            let firstClassNewCount =  firstClassCountNumber;
-            if (isIncrease==true){
-                firstClassNewCount =  firstClassCountNumber+1;
-            }
-            if(isIncrease==false && firstClassCountNumber>0 ){
-
-             firstClassNewCount =  firstClassCountNumber-1;    
-            }
-            firstClassCount.value = firstClassNewCount;
-            firstClassTotalPrice = firstClassNewCount *150;
-            document.getElementById("first-class-price").innerText = firstClassTotalPrice;
-            
-
-        }
-
-        document.getElementById("economy-class-increase").addEventListener("click",function(){
-            handleEconomyClassTicketChange(true);
-            subtotal();
-            tax();
-            totalPrice();
-        })
-
-        document.getElementById("economy-class-decrease").addEventListener("click",function(){
-           handleEconomyClassTicketChange(false);
-           subtotal();
-           tax();
-           totalPrice();
-           
-            
-        })
-
         
-        function handleEconomyClassTicketChange(isIncrease){
-            const economyClassCount = document.getElementById("economy-class-count");
-            const economyClassCountNumber = parseInt(economyClassCount.value);
-            let economyClassNewCount = economyClassCountNumber
-            if(isIncrease==true){
+        <!--Thank You-->
+        <div id="welcome-message" class="booking-content">
+            <h1>Thank You for taking our Services</h1>
+            <h3>Enjoy Your Flight</h3>
+        </div>
 
-                economyClassNewCount = economyClassCountNumber +1;
+
+        <script>
+            document.getElementById('first-class-increase').addEventListener("click", function () {
+                handleFirstClassTicketChange(true);
+                subtotal();
+                tax();
+                totalPrice();
+
+            })
+
+            document.getElementById("first-class-decrease").addEventListener("click", function () {
+                handleFirstClassTicketChange(false);
+                subtotal();
+                tax();
+                totalPrice();
+            })
+
+
+            function handleFirstClassTicketChange(isIncrease) {
+                const firstClassCount = document.getElementById("first-class-count");
+                const firstClassCountNumber = parseInt(firstClassCount.value);
+                let firstClassNewCount = firstClassCountNumber;
+                if (isIncrease == true) {
+                    firstClassNewCount = firstClassCountNumber + 1;
+                }
+                if (isIncrease == false && firstClassCountNumber > 0) {
+
+                    firstClassNewCount = firstClassCountNumber - 1;
+                }
+                firstClassCount.value = firstClassNewCount;
+                firstClassTotalPrice = firstClassNewCount * 150;
+                document.getElementById("first-class-price").innerText = firstClassTotalPrice;
+
+
             }
-            if(isIncrease==false && economyClassCountNumber>0){
-                economyClassNewCount = economyClassCountNumber-1;
+
+            document.getElementById("economy-class-increase").addEventListener("click", function () {
+                handleEconomyClassTicketChange(true);
+                subtotal();
+                tax();
+                totalPrice();
+            })
+
+            document.getElementById("economy-class-decrease").addEventListener("click", function () {
+                handleEconomyClassTicketChange(false);
+                subtotal();
+                tax();
+                totalPrice();
+
+
+            })
+
+
+            function handleEconomyClassTicketChange(isIncrease) {
+                const economyClassCount = document.getElementById("economy-class-count");
+                const economyClassCountNumber = parseInt(economyClassCount.value);
+                let economyClassNewCount = economyClassCountNumber
+                if (isIncrease == true) {
+
+                    economyClassNewCount = economyClassCountNumber + 1;
+                }
+                if (isIncrease == false && economyClassCountNumber > 0) {
+                    economyClassNewCount = economyClassCountNumber - 1;
+                }
+                economyClassCount.value = economyClassNewCount;
+                economyClassTotalPrice = economyClassNewCount * 100;
+                document.getElementById("economy-class-price").innerText = economyClassTotalPrice;
+
             }
-            economyClassCount.value = economyClassNewCount;
-            economyClassTotalPrice = economyClassNewCount*100;
-            document.getElementById("economy-class-price").innerText= economyClassTotalPrice;
-            
-        }
-
-        
-
-        function subtotal(){
-            const firstClassCount =  document.getElementById("first-class-count").value;
-            const firstClassCountNumber = parseInt(firstClassCount.value);
-            
-            const economyClassCount = document.getElementById("economy-class-count").value;
-            const economyClassCountNumber = parseInt(economyClassCount.value);
-            
-            const subtotalPrice = firstClassCount*150 + economyClassCount*100;
-            document.getElementById("subtotal").innerText = subtotalPrice;
-            
-        }
-
-        function tax(){
-            const firstClassCount =  document.getElementById("first-class-count").value;
-            const firstClassCountNumber = parseInt(firstClassCount.value);
-            
-            const economyClassCount = document.getElementById("economy-class-count").value;
-            const economyClassCountNumber = parseInt(economyClassCount.value);
-            
-            const subtotalPrice = parseFloat(firstClassCount*150 + economyClassCount*100);
-            const totalTax = parseFloat(subtotalPrice*0.1); 
-            document.getElementById("total-tax").innerText = totalTax;
-            
-        }
-        function totalPrice(){
-            const firstClassCount =  document.getElementById("first-class-count").value;
-            const firstClassCountNumber = parseInt(firstClassCount.value);
-            
-            const economyClassCount = document.getElementById("economy-class-count").value;
-            const economyClassCountNumber = parseInt(economyClassCount.value);
-            
-            const subtotalPrice =parseFloat(firstClassCount*150 + economyClassCount*100) ;
-            const totalTax =parseFloat(subtotalPrice*0.1); 
-
-            const totalPrice = parseFloat(subtotalPrice + totalTax);
-            document.getElementById("total-price").innerText = totalPrice;
-            
-        }
-
-       
 
 
-      
 
-    </script>
-    
-    
+            function subtotal() {
+                const firstClassCount = document.getElementById("first-class-count").value;
+                const firstClassCountNumber = parseInt(firstClassCount.value);
+
+                const economyClassCount = document.getElementById("economy-class-count").value;
+                const economyClassCountNumber = parseInt(economyClassCount.value);
+
+                const subtotalPrice = firstClassCount * 150 + economyClassCount * 100;
+                document.getElementById("subtotal").innerText = subtotalPrice;
+
+            }
+
+            function tax() {
+                const firstClassCount = document.getElementById("first-class-count").value;
+                const firstClassCountNumber = parseInt(firstClassCount.value);
+
+                const economyClassCount = document.getElementById("economy-class-count").value;
+                const economyClassCountNumber = parseInt(economyClassCount.value);
+
+                const subtotalPrice = parseFloat(firstClassCount * 150 + economyClassCount * 100);
+                const totalTax = parseFloat(subtotalPrice * 0.1);
+                document.getElementById("total-tax").innerText = totalTax;
+
+            }
+            function totalPrice() {
+                const firstClassCount = document.getElementById("first-class-count").value;
+                const firstClassCountNumber = parseInt(firstClassCount.value);
+
+                const economyClassCount = document.getElementById("economy-class-count").value;
+                const economyClassCountNumber = parseInt(economyClassCount.value);
+
+                const subtotalPrice = parseFloat(firstClassCount * 150 + economyClassCount * 100);
+                const totalTax = parseFloat(subtotalPrice * 0.1);
+
+                const totalPrice = parseFloat(subtotalPrice + totalTax);
+                document.getElementById("total-price").innerText = totalPrice;
+
+            }
+            document.getElementById("booking").addEventListener("click",function(){
+            
+                const bookingArea =   document.getElementById("booking-area").style.display = "none";
+                 const welcomeMessage =  document.getElementById("welcome-message");welcomeMessage.style.display = "block";
+            })
+            
+              
+             
+
+            </script>
+
 </body>
 
 </html>

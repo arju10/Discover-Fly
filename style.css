@@ -12,6 +12,7 @@ body{
     background-position: center center;
     background-attachment: scroll;
     background-size: cover;
+    
 }
 
 nav{
@@ -23,6 +24,7 @@ nav{
     width: 1200px;
     max-width: 85%;
     margin: 0 auto;
+    
 }
 nav ul{
     display: flex;
@@ -119,4 +121,17 @@ nav ul li a:hover, a.active{
 .amount{
     display: flex;
     justify-content: space-between;
+}
+#welcome-message{
+    display: none;
+    color: rgb(255, 255, 255);
+    z-index: 1;
+    
+}
+
+.btn{
+    background: #3352F2;
+    padding: 0px 5px;
+    font-size: 25px;
+    color: white;
 }
